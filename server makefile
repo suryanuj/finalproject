@@ -1,0 +1,13 @@
+INCLUDES=../../include
+LIBS=../../lib
+
+all: PiComm
+
+PiComm: main.o
+	gcc main.c -o PiComm -L $(LIBS) -lsense -lm
+
+main.o: main.c
+	gcc -c main.c -I $(INCLUDES)
+
+clean:
+	rm -f PiComm *.o
